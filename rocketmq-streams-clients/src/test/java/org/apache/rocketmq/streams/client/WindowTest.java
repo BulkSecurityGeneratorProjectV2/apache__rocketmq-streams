@@ -20,6 +20,7 @@ package org.apache.rocketmq.streams.client;
 import com.alibaba.fastjson.JSONObject;
 import java.io.File;
 import java.io.Serializable;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -135,7 +136,7 @@ public class WindowTest implements Serializable {
 
         File dataFile = null;
         try {
-            dataFile = File.createTempFile("behavior", ".txt");
+            dataFile = Files.createTempFile("behavior", ".txt").toFile();
             FileUtils.writeLines(dataFile, behaviorList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -143,7 +144,7 @@ public class WindowTest implements Serializable {
 
         File resultFile = null;
         try {
-            resultFile = File.createTempFile("behavior.txt", ".session");
+            resultFile = Files.createTempFile("behavior.txt", ".session").toFile();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -233,7 +234,7 @@ public class WindowTest implements Serializable {
 
         File dataFile = null;
         try {
-            dataFile = File.createTempFile("behavior", ".txt");
+            dataFile = Files.createTempFile("behavior", ".txt").toFile();
             FileUtils.writeLines(dataFile, behaviorList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -241,7 +242,7 @@ public class WindowTest implements Serializable {
 
         File resultFile = null;
         try {
-            resultFile = File.createTempFile("behavior.txt", ".session");
+            resultFile = Files.createTempFile("behavior.txt", ".session").toFile();
         } catch (Exception e) {
             e.printStackTrace();
         }
